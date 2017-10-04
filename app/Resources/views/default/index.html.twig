@@ -1,0 +1,376 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="wrapper">
+        <header id="header" class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-5 col-xs-3">
+                        <div class="logo">
+                            <a href="#">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                                <strong>Bus4you</strong>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-push-6 col-sm-4 col-xs-6">
+                        <button class="call-trigger">Заказать звонок</button>
+                    </div>
+                    <div class="col-md-6 col-md-pull-3 col-sm-3 col-xs-3">
+                        <a class="mmenu" href="#menu">
+                            <button id="my-icon" class="hamburger hamburger--collapse" type="button">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </a>
+                        <nav id="menu" class="main-menu">
+                            <ul class="menu">
+                                <li><a href="">О компании</a></li>
+                                <li><a href="">Акции</a></li>
+                                <li><a href="">Расписание</a></li>
+                                <li><a href="">Блог</a></li>
+                                <li><a href="">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="head-section">
+            <div class="container">
+                <h2 class="main-title">Предлагаем самый удобный способ добраться, куда вам нужно, недорого и в короткий срок.</h2>
+                <strong class="sub-title">Регулярные рейсы Харьков–Москва и Москва–Харьков</strong>
+                <div class="form-travel">
+                    <form method="POST" action="{{path('bundles_call_me_trip_reciver')}}">
+                        <div class="row container-inputs">
+                            <div class="col-md-3 col-sm-6">
+                                <p>Откуда едете?</p>
+                                <select name="call_me[dispatch]" id="from">
+                                    <option value="">Харьков</option>
+                                    <option value="">Киев</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <p>Куда едете?</p>
+                                <select name="call_me[destination]" id="to">
+                                    <option value="">Москва</option>
+                                    <option value="">Курск</option>
+                                    <option value="">Белгород</option>
+                                    <option value="">Воронеж</option>
+                                    <option value="">Орел</option>
+                                    <option value="">Тула</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 input-date">
+                                <p>Когда едете?</p>
+                                <input name="call_me[date]" type="date">
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 input-quantity">
+                                <p>Сколько человек?</p>
+                                <ul class="quantity-people">
+                                    <li>
+                                        <label for="val-1"></label>
+                                        <input type="radio" id="val-1" name="call_me[quantity_people]" value="1">
+                                        <div class="check">1</div>
+                                    </li>
+                                    <li>
+                                        <label for="val-2"></label>
+                                        <input type="radio" id="val-2" name="call_me[quantity_people]" value="2" checked="">
+                                        <div class="check">2</div>
+                                    </li>
+                                    <li>
+                                        <label for="val-3"></label>
+                                        <input type="radio" id="val-3" name="call_me[quantity_people]" value="3">
+                                        <div class="check">3</div>
+                                    </li>
+                                    <li>
+                                        <label for="val-4"></label>
+                                        <input type="radio" id="val-4" name="call_me[quantity_people]" value="4">
+                                        <div class="check">4</div>
+                                    </li>
+                                    <li>
+                                        <label for="val-5"></label>
+                                        <input type="radio" id="val-5" name="call_me[quantity_people]" value="5">
+                                        <div class="check">5</div>
+                                    </li>
+                                    <li>
+                                        <label for="val-6"></label>
+                                        <input type="radio" id="val-6" name="call_me[quantity_people]" value="6">
+                                        <div class="check">6</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-8">
+                                <span>Доп. услуги</span><sup class="tooltip" title="Примерный текст для попапов с пояснениями">?</sup>
+                                <select name="call_me[services]" id="services" multiple>
+                                    <option value="Забрать из дома">Забрать из дома</option>
+                                    <option value="Инвалидное кресло">Инвалидное кресло</option>
+                                    <option value="Детское кресло">Детское кресло</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-sm-4">
+                                <input type="submit" value="Заказать билеты">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <h2 class="main-title">Выбирая нас вы гарантированно получаете</h2>
+                <div class="bonuses">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/reliable.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Надежные автобусы с проверенными водителями</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/customs.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Ускоренный способ прохождения таможни</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/bonus.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Бонусную систему для постоянных клиентов</span>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="second-section">
+            <div class="container">
+                <h2 class="main-title">Ежедневное отправление для вашего удобства</h2>
+                <div class="schedule">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="container-schedule">
+                                <h5 class="town"><strong>из Харькова</strong> в 20:00</h5>
+                                <ul class="route">
+                                    <li>Белгород</li>
+                                    <li>Курск</li>
+                                    <li>Орел</li>
+                                    <li>Тула</li>
+                                    <li>Москва</li>
+                                </ul>
+                                <strong class="station"><img src="{{ asset('assets/img/marker.png') }}" alt="">Южный вокзал</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="container-schedule">
+                                <h5 class="town"><strong>из Москвы</strong> в 22:00 и 23:00</h5>
+                                <ul class="route">
+                                    <li>Тула</li>
+                                    <li>Орел</li>
+                                    <li>Курск</li>
+                                    <li>Белгород</li>
+                                    <li>Харьков</li>
+                                </ul>
+                                <strong class="station"><img src="{{ asset('assets/img/marker.png') }}" alt="">м. Борисово и м. Ак. Янгеля</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <strong class="sub-title">Можем забрать вас прямо из дома и отвезти домой!</strong>
+                <button class="call-trigger">Заказать билеты</button>
+            </div>
+        </section>
+        <section class="comfort-section">
+            <div class="container">
+                <h2 class="main-title">Ваша поездка будет максимально комфортной</h2>
+                <div class="container-comfort">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/water.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <strong>Не испытаете жажду</strong>
+                                    <span>Бутылка воды<br>для каждого места</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/cookie.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <strong>Сможете подкрепиться</strong>
+                                    <span>Вкусное печенье и конфеты для взрослых и детей</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/condition.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <strong>Забудете о погоде</strong>
+                                    <span>Включаем кондиционер в жару, выдаем теплые пледы в холод</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <strong class="sub-title">Всё это входит в стоимость билета!</strong>
+                <button class="call-trigger">Заказать билеты</button>
+            </div>
+        </section>
+        <section class="add-services">
+            <div class="container">
+                <h2 class="main-title">Дополнительные услуги на все случаи жизни</h2>
+                <div class="container-services">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="add-service blue">
+                                <h6>Микроавтобус<br>для любых Ваших планов</h6>
+                                <p>Какое бы мероприятие Вы ни задумали — мы берем на себя решение транспортных вопросов!</p>
+                                <p>Будь–то корпоратив, свадьба или просто пикник, а может и поездка на море.</p>
+                                <button class="call-trigger">Подробнее</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="add-service orange">
+                                <h6>Офисный и квартирный переезд из Харькова в Москву с комфортом</h6>
+                                <p>Наши специалисты не только помогут с перевозкой Вашей мебели и вещей, но и соберут и расставят все по местам!</p>
+                                <p>Ещё какой-тоф текст, очень длинный текст, аж на целых две строки о самом важном.</p>
+                                <button class="call-trigger">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="quality-service">
+            <div class="container">
+                <h2 class="main-title">Еще немного о качестве сервиса</h2>
+                <div class="container-comfort">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/cleaning.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span>Проводим регулярную химчистку салона</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/sale.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span>Пенсионерам<br>скидка 20%<sup class="tooltip" title="Примерный текст для попапов с пояснениями">?</sup></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/customs-sale.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span>При долгом прохождении границы скидка 5%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="call-trigger">Заказать билеты</button>
+            </div>
+        </section>
+        <section class="map-route">
+            <h2 class="main-title">Карта маршрута</h2>
+            <div class="tabs">
+                <ul>
+                    <li>Москва – Харьков</li>
+                    <li>Харьков - Москва</li>
+                </ul>
+                <div>
+                    <div>
+                        <img class="img-responsive desktop-img" src="{{ asset('assets/img/moskov-kharkov.jpg') }}" alt="">
+                        <img class="img-responsive mobile-img" src="{{ asset('assets/img/moskov-kharkov-mobile.jpg') }}" alt="">
+                    </div>
+                    <div>
+                        <img class="img-responsive desktop-img" src="{{ asset('assets/img/kharov-moskov.jpg') }}" alt="">
+                        <img class="img-responsive mobile-img" src="{{ asset('assets/img/kharov-moskov-mobile.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <button class="call-trigger">Заказать билеты</button>
+            <div class="seo-text">
+                <p>К нам часто обращаются потенциальные покупатели с просьбой посоветовать автобус для междугородней перевозки пассажиров на дальние расстояние (1500-2000 км). В первую очередь мы рекомендуем обратить внимание на модели, оборудованные всем необходимым для комфортных перевозок на такие расстояния (холодильник, кулер, туалет и пр.). Не лишним будет наличие спального места для второго водителя. Хорошо себя зарекомендовали модели Higer-6129 с модификациями на 47 или 49 мест, с движками стандарта Евро-4, Евро-5. Нередко покупатели ищут модели пригородных автобусов по экономичной цене. В этом случае можно посоветовать автобус ПАЗ-4234 с двумя дверями, рассчитанный на 30 сидячих мест, общей вместимостью 50 человек. Модель оснащена дизельным двигателем мощностью 129 л. с. и имеет солидный гарантийный срок (18 месяцев). Также обратите внимание на автобусы КАВЗ Аврора-4238 на 39 посадочных мест общей вместимостью 44 человека, с движками Cummins класса Евро-4.</p>
+
+                <p>Функциональность. Зависит от частоты применения и сферы использования. Особенно это касается туристических компаний, оказывающих услуги перевозки пассажиров по России, дальнему и ближнему зарубежью. Они должны закупать технику новых моделей, предназначенную для полного удовлетворения нужд пассажиров (кондиционер, биотуалет и пр.). К тому же к автобусам, пересекающим границы европейских государств, предъявляются высокие требования экологичности (соответствие двигателя стандартам Евро-4, Евро-5).</p>
+
+                <p>Комфорт. Немаловажный критерий, определяющий условия пребывания людей в а втобусе. Сюда входят оформление и эргономичность салона (расположение поручней, подножек, конструкция и обивка кресел, системы вентиляции, обогрева и пр.), а также особенности строения кузова модели.<br>
+                Для экскурсионных автобусов, например, необходимо наличие широких окон, обеспечивающих оптимальный панорамный обзор.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-4">
+                        <div class="logo">
+                            <a href="#">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                                <strong>Bus4you</strong>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 hidden-xs">
+                        <nav class="main-menu">
+                            <ul class="menu">
+                                <li><a href="">О компании</a></li>
+                                <li><a href="">Акции</a></li>
+                                <li><a href="">Расписание</a></li>
+                                <li><a href="">Блог</a></li>
+                                <li><a href="">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-8">
+                        <button class="call-trigger">Заказать звонок</button>
+                        <strong class="with-us">С нами - просто</strong>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal-form">
+        <h4 class="form-title">Заполните форму</h4>
+        <p>Мы свяжемся с Вами в течении 5 минут</p>
+        <form method="POST" action="{{path('bundles_call_me_feedback_reciver')}}">
+            <input type="text" name="call_me[name]" placeholder="Ваше имя">
+            <input type="text" name="call_me[phone]" class="phone" placeholder="(095) 123-45-67">
+            <input type="submit" class="button" value="Отправить">
+        </form>
+    </div>
+    <div class="overlay"></div>
+
+{% endblock %}
+

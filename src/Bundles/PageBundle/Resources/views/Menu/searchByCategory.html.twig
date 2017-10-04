@@ -1,0 +1,15 @@
+<section class="categories-search-main">
+    <div class="search-title-main">Поиск По Категориям</div>
+
+    <div class="container">
+        <div class="search-blocks">
+            <ul class="search-categories center-block">
+               {% for item in items %}
+                <li><a href="{{item.url}}">{{item.name}}</a></li>
+               {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+

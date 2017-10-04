@@ -1,0 +1,12 @@
+bundles.page.static_page:
+    path:      /{slug}.html
+    defaults:  { _controller: BundlesPageBundle:StaticPage:staticPage }
+    
+bundles.page.article.index:
+    path:      /news
+    defaults:  { _controller: BundlesPageBundle:Article:index }
+    
+    
+bundles.page.article:
+    path:      /news/{slug}
+    defaults:  { _controller: BundlesPageBundle:Article:article }

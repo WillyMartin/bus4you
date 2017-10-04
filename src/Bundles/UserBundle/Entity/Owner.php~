@@ -1,0 +1,159 @@
+<?php
+
+namespace Bundles\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Owner
+ */
+class Owner
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $phone;
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    function __toString() {
+        return $this->name?$this->name:'New';
+    }
+    
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Owner
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return Owner
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+    /**
+     * @var \Bundles\UserBundle\Entity\User
+     */
+    private $user;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $apartments;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->apartments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Bundles\UserBundle\Entity\User $user
+     * @return Owner
+     */
+    public function setUser(\Bundles\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Bundles\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add apartments
+     *
+     * @param \Bundles\StoreBundle\Entity\Apartment $apartments
+     * @return Owner
+     */
+    public function addApartment(\Bundles\StoreBundle\Entity\Apartment $apartments)
+    {
+        $this->apartments[] = $apartments;
+
+        return $this;
+    }
+
+    /**
+     * Remove apartments
+     *
+     * @param \Bundles\StoreBundle\Entity\Apartment $apartments
+     */
+    public function removeApartment(\Bundles\StoreBundle\Entity\Apartment $apartments)
+    {
+        $this->apartments->removeElement($apartments);
+    }
+
+    /**
+     * Get apartments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getApartments()
+    {
+        return $this->apartments;
+    }
+}

@@ -1,0 +1,3 @@
+bundles_parameter_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BundlesParameterBundle:Default:index }

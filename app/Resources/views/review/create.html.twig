@@ -1,0 +1,16 @@
+<div class="form_review">
+    <h4>Оставить отзыв о товаре</h4>
+    
+    {% for flash_message in app.session.flashBag.get('review_create') %}
+        {{ flash_message }}
+    {% endfor %}
+
+    <form action="{{path('catolog_review_save', {'product' : product.id})}}" method="post">
+{#        <input id="star2" name="review[rate]" value="2" type="radio">#}
+        <label for="name">Ваше имя:</label>
+        <input type="text" name="review[name]">
+        <label for="review">Отзыв:</label>
+        <textarea name="review[message]" id="" cols="20" rows="5"></textarea>
+        <input type="submit" value="Отправить">
+    </form>
+</div>

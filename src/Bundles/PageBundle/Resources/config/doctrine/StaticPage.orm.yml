@@ -1,0 +1,24 @@
+Bundles\PageBundle\Entity\StaticPage:
+    type: entity
+    table: static_page
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        content:
+            type: text 
+            nullable: true
+    oneToOne:
+        page:
+            targetEntity: Bundles\PageBundle\Entity\Page
+            cascade: ["persist", "refresh", "remove"]
+            joinColumn:
+                name: page_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

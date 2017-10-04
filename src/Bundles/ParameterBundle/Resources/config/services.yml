@@ -1,0 +1,29 @@
+services:
+    
+    # Admin
+    
+    sonata.admin.parameter.parameters:
+        class: Bundles\ParameterBundle\Admin\ParameterAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Настройки", label: "Настройки" }
+        arguments:
+            - ~
+            - Bundles\ParameterBundle\Entity\Parameter
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesParameterBundle]]
+            
+    #Repository
+                
+    bundles.parameter.parameter_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ["@doctrine.orm.entity_manager", "getRepository"]
+        arguments:
+            - 'BundlesParameterBundle:Parameter'
+            
+    #Service
+    
+    bundles.parameter_manager:
+        class: Bundles\ParameterBundle\Service\ParameterManager
+        arguments:
+            - "@bundles.parameter.parameter_repository"

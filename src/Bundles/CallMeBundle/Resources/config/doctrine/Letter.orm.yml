@@ -1,0 +1,32 @@
+Bundles\CallMeBundle\Entity\Letter:
+    type: entity
+    table: letters
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+        comment:
+            type: string
+            length: 255
+            nullable: true
+        done:
+            type: boolean
+    manyToOne:
+#        client:
+#            targetEntity: Bundles\UserBundle\Entity\Client
+#            joinColumn:
+#                name: client_id
+#                referencedColumnName: id
+        subject:
+            targetEntity: Subject
+            joinColumn:
+                name: subject_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

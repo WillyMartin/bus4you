@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+  
+{% block content %}
+ <section class="news">
+        <div class="container">
+            <div class="row">
+                {% for item in articles %}
+                <div class="col-20 col-md-4 col-xs-6">
+                    <div class="news-item">
+                        <div class="news-item-img-block"><a href="{{path('bundles.page.article', {'slug': item.page.slug})}}"><img src="{{item.src}}" alt="" /></a></div>
+                        <div class="news-item-title"><a href="{{path('bundles.page.article', {'slug': item.page.slug})}}">{{item.title}}</a></div>
+                        <div class="news-item-discription">{{item.shortContent}}</div><a href="{{path('bundles.page.article', {'slug': item.page.slug})}}" class="readmore">Читать далее</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

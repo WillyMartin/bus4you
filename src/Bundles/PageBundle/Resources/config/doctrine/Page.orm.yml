@@ -1,0 +1,37 @@
+Bundles\PageBundle\Entity\Page:
+    type: entity
+    table: seo_page
+    repositoryClass: Bundles\PageBundle\Repository\PageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: true
+        slug:
+            type: string
+            length: 255
+            unique: true
+        description:
+            type: string
+            length: 4096
+            nullable: true
+        keywords:
+            type: string
+            length: 4096
+            nullable: true
+        itemId:
+            type: string
+            length: 255
+            column: item_id
+            nullable: true
+        entityId:
+            type: integer
+            column: entity_id
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,11 @@
+services:
+            
+    #Generator
+    bundles.user.user_generator:
+        class: Bundles\UserBundle\Generator\UserGenerator
+        arguments:
+            - "@service_container"
+        
+    #Encoder
+    bundles.md5password.encoder:
+        class: Bundles\UserBundle\Security\Md5PasswordEncoder

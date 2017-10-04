@@ -1,0 +1,20 @@
+Bundles\PageBundle\Entity\Menu:
+    type: entity
+    table: main_menu
+    repositoryClass: Bundles\PageBundle\Repository\MenuRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        orderNum:
+            type: integer
+        name:
+            type: string
+            length: 255
+        url:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

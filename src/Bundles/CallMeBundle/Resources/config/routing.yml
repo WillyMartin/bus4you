@@ -1,0 +1,11 @@
+bundles_call_me_feedback_reciver:
+    path:     /feedback-reciver
+    defaults: { _controller: BundlesCallMeBundle:CallMe:index }
+
+bundles_call_me_trip_reciver:
+    path:     /trip
+    defaults: { _controller: BundlesCallMeBundle:Trip:index }
+
+bundles_call_me_letter_reciver:
+    path:     /feedback-letter-reciver
+    defaults: { _controller: BundlesCallMeBundle:Letter:index }

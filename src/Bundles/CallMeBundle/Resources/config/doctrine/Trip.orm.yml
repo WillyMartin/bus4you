@@ -1,0 +1,38 @@
+Bundles\CallMeBundle\Entity\Trip:
+    type: entity
+    table: trip
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+        phone:
+            type: string
+            length: 255
+            nullable: true
+        dispatch:
+            type: string
+            length: 255
+            nullable: true
+        destination:
+            type: string
+            length: 255
+            nullable: true
+        date_travel:
+            type: date
+        services:
+            type: string
+            length: 255
+            nullable: true
+        quantity_people:
+            type: integer
+            nullable: true
+        done:
+            type: boolean
+    lifecycleCallbacks: {  }

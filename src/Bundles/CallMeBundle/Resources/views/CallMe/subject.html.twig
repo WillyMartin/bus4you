@@ -1,0 +1,6 @@
+<select name="letter[subject]" class="form-control form-border-main" id="exampleSelectQuestion">
+    <option value="0">Виберите Тему Вопроса</option>
+    {% for item in subjects %}
+    <option value="{{item.id}}">{{item.name}}</option>
+    {% endfor %}
+</select>

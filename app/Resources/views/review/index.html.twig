@@ -1,0 +1,18 @@
+<div class="container_all_reviews">
+    {% for item in reviews %}       
+    <div class="one_review">
+        <div class="row">
+            <div class="col-lg-2 col-md-3">
+                <div class="rating" style="background-position: 0 {{item.rate*20}}%;"></div>
+                <strong class="author_review">{{item.name}}</strong>
+                <time>{{item.createdAt|date('d.m.Y')}}</time>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <div class="text_review">
+                   {{item.message}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

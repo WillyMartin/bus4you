@@ -1,0 +1,72 @@
+services:
+    
+    #Service
+    bundles.page.page_manager:
+        class: Bundles\PageBundle\Service\PageManager
+        arguments:
+            - "@service_container"
+
+    #Generator
+    bundles.page.page_generator:
+        class: Bundles\PageBundle\Generator\PageGenerator
+        arguments:
+            - "@bundles.page.page_manager"
+            
+
+    #Repository
+    bundles.page.static_page.repository:
+        class: Bundles\PageBundle\Repository\StaticPageRepository
+        factory: ["@doctrine.orm.entity_manager", 'getRepository']
+        arguments:
+            - "BundlesPageBundle:StaticPage"
+
+    bundles.page.menu.repository:
+        class: Bundles\PageBundle\Repository\MenuRepository
+        factory: ["@doctrine.orm.entity_manager", 'getRepository']
+        arguments:
+            - "BundlesPageBundle:Menu"
+
+    #Admin
+    sonata.admin.static_page:
+        class: Bundles\PageBundle\Admin\StaticPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Контент", label: "Статические страницы" }
+        arguments:
+            - ~
+            - Bundles\PageBundle\Entity\StaticPage
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesPageBundle]]
+            
+    sonata.admin.page:
+        class: Bundles\PageBundle\Admin\PageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Контент", label: "Страницы" }
+        arguments:
+            - ~
+            - Bundles\PageBundle\Entity\Page
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesPageBundle]]
+            
+    sonata.admin.article:
+        class: Bundles\PageBundle\Admin\ArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Новости", label: "Новости" }
+        arguments:
+            - ~
+            - Bundles\PageBundle\Entity\Article
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesPageBundle]]
+            
+    sonata.admin.menu:
+        class: Bundles\PageBundle\Admin\MenuAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Контент", label: "Поиск По Категориям" }
+        arguments:
+            - ~
+            - Bundles\PageBundle\Entity\Menu
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesPageBundle]]

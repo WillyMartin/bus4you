@@ -1,0 +1,37 @@
+services:
+    
+    # Admin
+    
+    sonata.admin.store.call_me:
+        class: Bundles\CallMeBundle\Admin\CallMeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Обратная связь", label: "Обратный звонок" }
+        arguments:
+            - ~
+            - Bundles\CallMeBundle\Entity\CallMe
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesStoreBundle]]
+
+    sonata.admin.store.trip:
+        class: Bundles\CallMeBundle\Admin\TripAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Обратная связь", label: "Поездки" }
+        arguments:
+            - ~
+            - Bundles\CallMeBundle\Entity\Trip
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesStoreBundle]]
+            
+            
+    sonata.admin.call_me.subject:
+        class: Bundles\CallMeBundle\Admin\SubjectAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Обратная связь", label: "Темы обращений" }
+        arguments:
+            - ~
+            - Bundles\CallMeBundle\Entity\Subject
+            - ~
+        calls:
+            - [ setTranslationDomain, [BundlesStoreBundle]]

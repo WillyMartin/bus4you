@@ -1,0 +1,39 @@
+Bundles\PageBundle\Entity\Article:
+    type: entity
+    table: articles
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        image:
+            type: string
+            length: 255
+            nullable: true
+        shortContent:
+            type: text  
+        content:
+            type: text  
+        image:
+            type: string
+            length: 255
+            nullable: true
+        imageIcon:
+            type: string
+            length: 255
+            nullable: true
+        createdAt:
+            type: date
+    oneToOne:
+        page:
+            targetEntity: Bundles\PageBundle\Entity\Page
+            cascade: ["persist", "refresh", "remove"]
+            joinColumn:
+                name: page_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
