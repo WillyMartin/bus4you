@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title><?php echo $this->t('sign_in.title')?></title>
+        <?php include 'shared/_head.phtml' ?>
+        <?php
+        if (\Core\Application\Application::instance()->isProduction()) {
+            echo $this->wrapCss('assets/login.css');
+        }
+        ?>
+    </head>
+    <body class="login">
+        <app-login
+            class="login-block"
+            login="'<?php echo $this->escape($this->login) ?>'"
+            password="'<?php echo $this->escape($this->password)?>'">
+        </app-login>
+
+        <script type="application/javascript">
+            var kData = {};
+            var kTranslations = <?php echo json_encode($this->translations) ?>;
+        </script>
+
+        <?php
+        if (\Core\Application\Application::instance()->isDevelopment()) {
+            echo $this->wrapJs('//' . $_SERVER['HTTP_HOST']. ':8080/webpack-dev-server.js');
+            echo $this->wrapJs('//' . $_SERVER['HTTP_HOST']. ':8080/vendor.js');
+            echo $this->wrapJs('//' . $_SERVER['HTTP_HOST']. ':8080/login.js');
+        } else {
+            echo $this->wrapJs('assets/vendor.js');
+            echo $this->wrapJs('assets/login.js');
+        }
+        ?>
+    </body>
+</html>

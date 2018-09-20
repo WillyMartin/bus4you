@@ -1,0 +1,9 @@
+<?php
+if (\Core\Application\Application::instance()->isDevelopment()) {
+    echo $this->wrapJs('//' . $_SERVER['HTTP_HOST']. ':8080/webpack-dev-server.js');
+    echo $this->wrapJs('//' . $_SERVER['HTTP_HOST']. ':8080/vendor.js');
+    echo $this->wrapJs('//' . $_SERVER['HTTP_HOST']. ':8080/app.js');
+} else {
+    echo $this->wrapJs('assets/vendor.js');
+    echo $this->wrapJs('assets/app.js');
+}

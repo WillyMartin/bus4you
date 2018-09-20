@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://octobus.cloud/frameapp/css/app.css" media="all">
+    <link rel="stylesheet" href="https://octobus.cloud/frameapp/print.css" media="print">
+    <style type="text/css">
+        body {
+            font-family: roboto-example, Sans-Serif;
+            background-color: rgba(0,25,47,.5)
+        }
+        label {color: #fff}
+        .frame-background {
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            min-height: 320px;
+            width: 100%;
+            background-color: rgba(0,25,47,.5);
+        }
+        @media screen and (max-width: 768px) {
+            .frame-background {min-height: 440px}
+        }
+
+        .octobus__title{
+            color: #fff!important;
+        }
+        .octobus__subtitle{
+            color: #fff!important;
+        }
+        .octobus__column {
+            color: #fff!important;
+        }
+
+        .octobus__container {
+            background-color: transparent!important;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" data-spa="1" data-ptoken="d5623fb10b6846a5815841b38b22ee43" data-lang="ru" data-env="prod"></div>
+    {#<div class="frame-background"></div>#}
+<script src="https://octobus.cloud/frameapp/js/manifest.js"></script>
+<script src="https://octobus.cloud/frameapp/js/vendor.js"></script>
+<script src="https://octobus.cloud/frameapp/js/app.js"></script>
+</body>
+</html>

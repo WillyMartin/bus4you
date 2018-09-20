@@ -16,9 +16,6 @@ class CallMeAdmin extends Admin
         $formMapper
             ->add('name', null , ['label' => 'Имя'])
             ->add('phone', null , ['label' => 'Телефон'])
-//            ->add('subject', null , ['label' => 'Тема'])
-            ->add('type_message', null , ['label' => 'Тема сообщения'])
-            ->add('message', null , ['label' => 'Текст сообщения'])
             ->add('done', null , ['label' => 'Обработано']) 
         ;
     }
@@ -29,9 +26,6 @@ class CallMeAdmin extends Admin
         $datagridMapper
             ->add('name', null , ['label' => 'Имя'])
             ->add('phone', null , ['label' => 'Телефон'])
-            ->add('message', null , ['label' => 'Текст сообщения'])
-//            ->add('subject', null , ['label' => 'Тема'])
-//            ->add('done', 'doctrine_orm_boolean' , ['label' => 'Выполнено'])
         ;
     }
 
@@ -41,9 +35,6 @@ class CallMeAdmin extends Admin
         $listMapper
             ->addIdentifier('name', null , ['label' => 'Имя'])
             ->add('phone', null , ['label' => 'Телефон'])
-//            ->add('subject', null , ['label' => 'Тема'])
-            ->add('message', null , ['label' => 'Текст сообщения'])
-            ->add('type_message', null , ['label' => 'Тема сообщения'])
             ->add('done', null , ['editable' => true, 'label' => 'Обработано'])
             ->add('_action', 'actions', ['label'=> 'Действия',
                 'actions' => [

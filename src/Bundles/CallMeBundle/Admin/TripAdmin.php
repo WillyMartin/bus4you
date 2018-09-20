@@ -16,24 +16,27 @@ class TripAdmin extends Admin
         $formMapper
             ->add('name', null , ['label' => 'Имя'])
             ->add('phone', null , ['label' => 'Телефон'])
+            ->add('email', null , ['label' => 'Email'])
             ->add('dispatch', null , ['label' => 'Точка отправления'])
             ->add('destination', null , ['label' => 'Точка прибытия'])
             ->add('date_travel', null , ['label' => 'Дата поездки'])
+            /*->add('creation_time', null , ['label' => 'Дата оформления заявки'])*/
             ->add('services', null , ['label' => 'Дополнительные услуги'])
             ->add('quantity_people', null , ['label' => 'Количесто людей'])
-            ->add('done', null , ['label' => 'Обработано']) 
+            ->add('done', null , ['label' => 'Обработано'])
         ;
     }
 
     // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {        
+    {
         $datagridMapper
             ->add('dispatch', null , ['label' => 'Точка отправления'])
             ->add('destination', null , ['label' => 'Точка прибытия'])
             ->add('date_travel', null , ['label' => 'Дата поездки'])
-//            ->add('subject', null , ['label' => 'Тема'])
-//            ->add('done', 'doctrine_orm_boolean' , ['label' => 'Выполнено'])
+            ->add('name', null , ['label' => 'Имя'])
+            ->add('phone', null , ['label' => 'Телефон'])
+            ->add('email', null , ['label' => 'Email'])
         ;
     }
 
@@ -41,8 +44,9 @@ class TripAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name', null , ['label' => 'Имя'])
+            ->add('name', null , ['label' => 'Имя'])
             ->add('phone', null , ['label' => 'Телефон'])
+            ->add('email', null , ['label' => 'Email'])
             ->add('dispatch', null , ['label' => 'Точка отправления'])
             ->add('destination', null , ['label' => 'Точка прибытия'])
             ->add('date_travel', null , ['label' => 'Дата поездки'])

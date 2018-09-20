@@ -1,0 +1,7 @@
+<p><?php use Component\Tools\Core\AbstractCore;
+    use Core\Tools\Tools;
+
+    echo $this->message?></p>
+
+<p id="ip"><?php echo $this->t('exceptions.server_ip') ?>: <?php echo \Core\Security\OwnerService::instance()->getLicenseIp() ?></p>
+<p id="ip"><?php echo $this->t('exceptions.server_time') ?>: <?php echo date('Y-m-d H:i') ?></p>

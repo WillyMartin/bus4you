@@ -1,0 +1,72 @@
+[2018-01-10 21:00:15] (jid:c161e) : Received: /keitaro/03efe07/postback?sub_id=TEST_SUBID&status=new&payout=999.00 
+[2018-01-10 21:00:15] (jid:c161e) : Accepted! 
+[2018-01-10 21:01:02] (jid:2ac98) : SubID not found "TEST_SUBID" 
+[2018-01-10 21:03:10] (jid:9620f) : Received: /keitaro/03efe07/postback?sub_id=TEST_SUBID&status=new&payout=999.00 
+[2018-01-10 21:03:10] (jid:9620f) : Accepted! 
+[2018-01-10 21:04:01] (jid:d291a) : SubID not found "TEST_SUBID" 
+[2018-01-10 21:07:08] (jid:4ebd1) : Received: /keitaro/03efe07/postback?sub_id=TEST_SUBID 
+[2018-01-10 21:07:08] (jid:4ebd1) : Accepted! 
+[2018-01-10 21:08:02] (jid:7c8f8) : SubID not found "TEST_SUBID" 
+[2018-01-11 12:33:18] (jid:a132b) : Received: /keitaro/03efe07/postback?sub_id=op0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 12:33:18] (jid:a132b) : Accepted! 
+[2018-01-11 12:34:01] (jid:2fbef) : SubID not found "op0kikdp2u5q9cl" 
+[2018-01-11 13:01:13] (jid:126bd) : Received: /keitaro/03efe07/postback?sub_id=op0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 13:01:13] (jid:126bd) : Accepted! 
+[2018-01-11 13:01:37] (jid:fc5dc) : Received: /keitaro/03efe07/postback?sub_id=p0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 13:01:37] (jid:fc5dc) : Accepted! 
+[2018-01-11 13:02:01] (jid:72e07) : SubID not found "op0kikdp2u5q9cl" 
+[2018-01-11 13:02:01] (jid:72e07) : SubID not found "p0kikdp2u5q9cl" 
+[2018-01-11 13:03:39] (jid:73d81) : Received: /keitaro/03efe07/postback?subid=p0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 13:03:39] (jid:73d81) : Accepted! 
+[2018-01-11 13:04:01] (jid:68dd5) : SubID not found "p0kikdp2u5q9cl" 
+[2018-01-11 13:04:07] (jid:0ec74) : Received: /keitaro/03efe07/postback?subid=p0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 13:04:07] (jid:0ec74) : Accepted! 
+[2018-01-11 13:05:01] (jid:977d2) : SubID not found "p0kikdp2u5q9cl" 
+[2018-01-11 13:05:04] (jid:516fd) : Received: /keitaro/03efe07/postback?subid=p0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 13:05:04] (jid:516fd) : Accepted! 
+[2018-01-11 13:05:42] (jid:146f6) : Received: /keitaro/03efe07/postbacksubid=p0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 13:05:42] (jid:146f6) : Accepted! 
+[2018-01-11 13:06:02] (jid:bf4f6) : SubID not found "p0kikdp2u5q9cl" 
+[2018-01-11 13:06:02] (jid:bf4f6) : SubID empty 
+[2018-01-11 13:06:29] (jid:2b283) : Received: /keitaro/03efe07/postback/?subid=p0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 13:06:29] (jid:2b283) : Accepted! 
+[2018-01-11 13:07:01] (jid:82e17) : SubID not found "p0kikdp2u5q9cl" 
+[2018-01-11 13:26:44] (jid:cac37) : Received: /keitaro/03efe07/postback?sub_id=op0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 13:26:44] (jid:cac37) : Accepted! 
+[2018-01-11 13:27:02] (jid:7eea2) : SubID not found "op0kikdp2u5q9cl" 
+[2018-01-11 14:19:39] (jid:8df6c) : Received: /keitaro/03efe07/postback/?subid=p0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 14:19:39] (jid:8df6c) : Accepted! 
+[2018-01-11 14:20:01] (jid:5bca4) : SubID not found "p0kikdp2u5q9cl" 
+[2018-01-11 14:28:42] (jid:c60bb) : Received: /keitaro/03efe07/postback 
+[2018-01-11 14:28:42] (jid:c60bb) : Accepted! 
+[2018-01-11 14:29:02] (jid:66868) : SubID empty 
+[2018-01-11 14:30:45] (jid:5a996) : Received: /keitaro/03efe07/postback?sub_id=op0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 14:30:45] (jid:5a996) : Accepted! 
+[2018-01-11 14:30:52] (jid:e706b) : Received: /keitaro/03efe07/postback?sub_id=op0kikdp2u5q9cl&status=new&payout=999.00 
+[2018-01-11 14:30:52] (jid:e706b) : Accepted! 
+[2018-01-11 14:31:01] (jid:4338f) : SubID not found "op0kikdp2u5q9cl" 
+[2018-01-11 14:31:01] (jid:4338f) : SubID not found "op0kikdp2u5q9cl" 
+[2018-01-11 14:33:16] (jid:ed98f) : Received: /keitaro/03efe07/postback?sub_id=TEST_SUBID&status=new&payout=999.00 
+[2018-01-11 14:33:16] (jid:ed98f) : Accepted! 
+[2018-01-11 14:34:01] (jid:88abd) : SubID not found "TEST_SUBID" 
+[2018-01-11 14:35:30] (jid:b7777) : Received: /keitaro/03efe07/postback?offer_id=999999999&offer_name=TEST_OFFER_NAME&admitad_id=TEST_ADMITAD_ID&website_name=TEST_WEBSITE_NAME&website_id=9999999&subid=TEST_SUBID&action=TEST_ACTION&action_id=TEST_ACTION_ID&subid1=TEST_SUBID1&subid2=TEST_SUBID2&subid3=TEST_SUBID3&subid4=TEST_SUBID4&payment_sum=999.00&payment_status=new&currency=RUB&order_id=999999999&order_sum=999.00&click_time=1515681150.29&time=1515681150.29&conversion_time=666&type=TEST_TYPE&action_ip=1.1.1.1&user_agent=TEST_USER_AGENT&user_referer=TEST_USER_REFERER&click_ip=1.1.1.1&country_code=RU 
+[2018-01-11 14:35:30] (jid:b7777) : Accepted! 
+[2018-01-11 14:35:38] (jid:c760f) : Received: /keitaro/03efe07/postback?offer_id=999999999&offer_name=TEST_OFFER_NAME&admitad_id=TEST_ADMITAD_ID&website_name=TEST_WEBSITE_NAME&website_id=9999999&subid=TEST_SUBID&action=TEST_ACTION&action_id=TEST_ACTION_ID&subid1=TEST_SUBID1&subid2=TEST_SUBID2&subid3=TEST_SUBID3&subid4=TEST_SUBID4&payment_sum=999.00&payment_status=new&currency=RUB&order_id=999999999&order_sum=999.00&click_time=1515681150.29&time=1515681150.29&conversion_time=666&type=TEST_TYPE&action_ip=1.1.1.1&user_agent=TEST_USER_AGENT&user_referer=TEST_USER_REFERER&click_ip=1.1.1.1&country_code=RU 
+[2018-01-11 14:35:38] (jid:c760f) : Accepted! 
+[2018-01-11 14:36:02] (jid:ddbcb) : SubID not found "TEST_SUBID" 
+[2018-01-11 14:36:02] (jid:ddbcb) : SubID not found "TEST_SUBID" 
+[2018-01-11 14:36:22] (jid:30359) : Received: /keitaro/03efe07/postback?sub_id=[[[subid]]]&status=[[[payment_status]]]&payout=[[[payment_sum]]] 
+[2018-01-11 14:36:22] (jid:30359) : Accepted! 
+[2018-01-11 14:36:35] (jid:24877) : Received: /keitaro/03efe07/postback?sub_id=[[[subid]]]&status=[[[payment_status]]]&payout=[[[payment_sum]]] 
+[2018-01-11 14:36:35] (jid:24877) : Accepted! 
+[2018-01-11 14:37:00] (jid:0d6d8) : Received: /keitaro/03efe07/postback?sub_id=TEST_SUBID&status=new&payout=999.00 
+[2018-01-11 14:37:00] (jid:0d6d8) : Accepted! 
+[2018-01-11 14:37:01] (jid:061c0) : SubID not found "[[[subid]]]" 
+[2018-01-11 14:37:01] (jid:061c0) : SubID not found "[[[subid]]]" 
+[2018-01-11 14:37:01] (jid:061c0) : SubID not found "TEST_SUBID" 
+[2018-01-11 14:41:53] (jid:bbaf1) : Received: /keitaro/03efe07/postback?sub_id=TEST_SUBID&status=new&payout=999.00 
+[2018-01-11 14:41:53] (jid:bbaf1) : Accepted! 
+[2018-01-11 14:42:01] (jid:7c67f) : SubID not found "TEST_SUBID" 
+[2018-01-11 20:55:54] (jid:219c2) : Received: /keitaro/03efe07/postback?sub_id=TEST_SUBID&status=new&payout=999.00 
+[2018-01-11 20:55:54] (jid:219c2) : Accepted! 
+[2018-01-11 20:56:01] (jid:97741) : SubID not found "TEST_SUBID" 

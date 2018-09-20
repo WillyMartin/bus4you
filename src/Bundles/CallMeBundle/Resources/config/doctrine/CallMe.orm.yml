@@ -11,27 +11,9 @@ Bundles\CallMeBundle\Entity\CallMe:
         name:
             type: string
             length: 255
-            nullable: true
-        object:
-            type: string
-            length: 255
-            nullable: true
         phone:
             type: string
             length: 255
-            nullable: true
-        email:
-            type: string
-            length: 255
-            nullable: true
-        type_message:
-            type: string
-            length: 255
-            nullable: true
-        message:
-            type: text
-            length: 1024
-            nullable: true
         done:
             type: boolean
 #    manyToOne:

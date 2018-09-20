@@ -2,13 +2,38 @@
 
 {% block body %}
 
+{#    <script>
+        function tripFunction() {
+            $.ajax({
+                method: "POST",
+                url: "{{url('bundles_call_me_trip_reciver')}}",
+                data: jQuery('form#tripform').serialize(),
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function callMeFunction() {
+            $.ajax({
+                method: "POST",
+                url: "{{url('bundles_call_me_feedback_reciver')}}",
+                data: jQuery('form#call_me_form').serialize(),
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+
+
+    </script>#}
+
     <div class="wrapper">
         <header id="header" class="header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-5 col-xs-3">
                         <div class="logo">
-                            <a href="#">
+                            <a href="{{ path('app.home') }}">
                                 <img src="{{ asset('assets/img/logo.png') }}" alt="">
                                 <strong>Bus4you</strong>
                             </a>
@@ -27,96 +52,181 @@
                         </a>
                         <nav id="menu" class="main-menu">
                             <ul class="menu">
-                                <li><a href="">О компании</a></li>
-                                <li><a href="">Акции</a></li>
-                                <li><a href="">Расписание</a></li>
-                                <li><a href="">Блог</a></li>
-                                <li><a href="">Контакты</a></li>
+                                <li><a href="{{ path('app.about') }}">О компании</a></li>
+                                {#<li><a href="">Акции</a></li>#}
+                                <li><a href="{{ path('app.schedule') }}">Расписание</a></li>
+                                {#<li><a href="">Блог</a></li>#}
+                                <li><a href="{{ path('app.about') }}">Контакты</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
         </header>
+
         <section class="head-section">
             <div class="container">
-                <h2 class="main-title">Предлагаем самый удобный способ добраться, куда вам нужно, недорого и в короткий срок.</h2>
+                <h2 class="main-title">Предлагаем самый удобный способ добраться, куда вам нужно, недорого и в короткий срок</h2>
                 <strong class="sub-title">Регулярные рейсы Харьков–Москва и Москва–Харьков</strong>
-                <div class="form-travel">
-                    <form method="POST" action="{{path('bundles_call_me_trip_reciver')}}">
+                <iframe seamless class="octobus-iframe" src="{{ path('app.octobus') }}" frameborder="0"></iframe>
+                {#<div class="form-travel clearfix">
+                    <iframe class="octobus-iframe" src="{{ path('app.octobus') }}" frameborder="0"></iframe>
+                    <form method="POST" action="{{path('bundles_call_me_trip_reciver')}}" id="tripform">
                         <div class="row container-inputs">
-                            <div class="col-md-3 col-sm-6">
-                                <p>Откуда едете?</p>
-                                <select name="call_me[dispatch]" id="from">
-                                    <option value="">Харьков</option>
-                                    <option value="">Киев</option>
-                                </select>
+                            <ul class="tabs-list">
+                                <li><a id="moscow-dest" class="active-li">Харьков-Москва</a></li>
+                                #}{#<li><a id="warshaw-dest">Харьков-Варшава</a></li>
+                                <li><a id="saint-p-dest">Харьков-Санкт-Петербург</a></li>#}{#
+                            </ul>
+                            <div class="destination">
+                                <div class="col-md-3 col-sm-6">
+                                    <p>Откуда едете?</p>
+                                    <select name="trip[dispatch]" id="from">
+                                        <option value="Харьков" class="kharkov">Харьков</option>
+                                        <option value="Москва" class="moscow">Москва</option>
+                                        #}{#<option value="Курск" class="moscow">Курск</option>
+                                        <option value="Белгород" class="moscow">Белгород</option>
+                                        <option value="Воронеж">Воронеж</option>
+                                        <option value="Орел" class="moscow">Орел</option>
+                                        <option value="Тула" class="moscow">Тула</option>
+                                        <option value="Варшава" class="warshaw">Варшава</option>
+                                        <option value="Полтава" class="warshaw">Полтава</option>
+                                        <option value="Пирятин" class="warshaw">Пирятин</option>
+                                        <option value="Киев" class="warshaw">Киев</option>
+                                        <option value="Житомир" class="warshaw">Житомир</option>
+                                        <option value="Ровно" class="warshaw">Ровно</option>
+                                        <option value="Луцк" class="warshaw">Луцк</option>
+                                        <option value="Львов" class="warshaw">Львов</option>
+                                        <option value="Рава Руська/Хребене" class="warshaw">Рава Руська/Хребене</option>
+                                        <option value="Люблин" class="warshaw">Люблин</option>
+                                        <option value="Санкт-Петербург" class="saint-p">Санкт-Петербург</option>#}{#
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <p>Куда едете?</p>
+                                    <select name="trip[destination]" id="to">
+                                        <option value="Харьков" class="kharkov">Харьков</option>
+                                        <option value="Москва" class="moscow">Москва</option>
+                                        #}{#<option value="Курск" class="moscow">Курск</option>
+                                        <option value="Белгород" class="moscow">Белгород</option>
+                                        <option value="Воронеж">Воронеж</option>
+                                        <option value="Орел" class="moscow">Орел</option>
+                                        <option value="Тула" class="moscow">Тула</option>
+                                        <option value="Варшава" class="warshaw">Варшава</option>
+                                        <option value="Полтава" class="warshaw">Полтава</option>
+                                        <option value="Пирятин" class="warshaw">Пирятин</option>
+                                        <option value="Киев" class="warshaw">Киев</option>
+                                        <option value="Житомир" class="warshaw">Житомир</option>
+                                        <option value="Ровно" class="warshaw">Ровно</option>
+                                        <option value="Луцк" class="warshaw">Луцк</option>
+                                        <option value="Львов" class="warshaw">Львов</option>
+                                        <option value="Рава Руська/Хребене" class="warshaw">Рава Руська/Хребене</option>
+                                        <option value="Люблин" class="warshaw">Люблин</option>
+                                        <option value="Санкт-Петербург" class="saint-p">Санкт-Петербург</option>#}{#
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-md-3 col-sm-6">
-                                <p>Куда едете?</p>
-                                <select name="call_me[destination]" id="to">
-                                    <option value="">Москва</option>
-                                    <option value="">Курск</option>
-                                    <option value="">Белгород</option>
-                                    <option value="">Воронеж</option>
-                                    <option value="">Орел</option>
-                                    <option value="">Тула</option>
-                                </select>
+                            #}{#<div id= "tab-2" class="tab">
+                                <div class="col-md-3 col-sm-6">
+                                    <p>Откуда едете?</p>
+                                    <select name="trip[dispatch]" id="from">
+                                        <option value="Харьков">Харьков</option>
+                                        <option value="Варшава">Варшава</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <p>Куда едете?</p>
+                                    <select name="trip[destination]" id="to">
+                                        <option value="Варшава">Варшава</option>
+                                        #}{##}{#<option value="Харьков">Харьков</option>#}{##}{#
+                                        <option value="Курск">Курск</option>
+                                        <option value="Белгород">Белгород</option>
+                                        <option value="Воронеж">Воронеж</option>
+                                        <option value="Орел">Орел</option>
+                                        <option value="Тула">Тула</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-6 input-date">
+                            <div id= "tab-3" class="tab">
+                                <div class="col-md-3 col-sm-6">
+                                    <p>Откуда едете?</p>
+                                    <select name="trip[dispatch]" id="from">
+                                        <option value="Харьков">Харьков</option>
+                                        <option value="Санкт-Петербург">Санкт-Петербург</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <p>Куда едете?</p>
+                                    <select name="trip[destination]" id="to">
+                                        <option value="Санкт-Петербург">Санкт-Петербург</option>
+                                        #}{##}{#<option value="Харьков">Харьков</option>#}{##}{#
+                                        <option value="Курск">Курск</option>
+                                        <option value="Белгород">Белгород</option>
+                                        <option value="Воронеж">Воронеж</option>
+                                        <option value="Орел">Орел</option>
+                                        <option value="Тула">Тула</option>
+                                    </select>
+                                </div>
+                            </div>#}{#
+                            <div class="col-md-3 col-sm-6 col-xs-6 input-date datepicker-container">
                                 <p>Когда едете?</p>
-                                <input name="call_me[date]" type="date">
+                                <input name="trip[date_travel]" class="datepicker" type="text" value="{{ "now"|date("d/m/Y") }}" placeholder="{{ "now"|date("d/m/Y") }}" readonly>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-6 input-quantity">
+                            <div class="col-md-3 col-sm-6 col-xs-6 input-quantity clearfix">
                                 <p>Сколько человек?</p>
                                 <ul class="quantity-people">
                                     <li>
                                         <label for="val-1"></label>
-                                        <input type="radio" id="val-1" name="call_me[quantity_people]" value="1">
+                                        <input type="radio" id="val-1" name="trip[quantity_people]" value="1">
                                         <div class="check">1</div>
                                     </li>
                                     <li>
                                         <label for="val-2"></label>
-                                        <input type="radio" id="val-2" name="call_me[quantity_people]" value="2" checked="">
+                                        <input type="radio" id="val-2" name="trip[quantity_people]" value="2" checked="">
                                         <div class="check">2</div>
                                     </li>
                                     <li>
                                         <label for="val-3"></label>
-                                        <input type="radio" id="val-3" name="call_me[quantity_people]" value="3">
+                                        <input type="radio" id="val-3" name="trip[quantity_people]" value="3">
                                         <div class="check">3</div>
                                     </li>
                                     <li>
                                         <label for="val-4"></label>
-                                        <input type="radio" id="val-4" name="call_me[quantity_people]" value="4">
+                                        <input type="radio" id="val-4" name="trip[quantity_people]" value="4">
                                         <div class="check">4</div>
                                     </li>
                                     <li>
                                         <label for="val-5"></label>
-                                        <input type="radio" id="val-5" name="call_me[quantity_people]" value="5">
+                                        <input type="radio" id="val-5" name="trip[quantity_people]" value="5">
                                         <div class="check">5</div>
                                     </li>
                                     <li>
                                         <label for="val-6"></label>
-                                        <input type="radio" id="val-6" name="call_me[quantity_people]" value="6">
+                                        <input type="radio" id="val-6" name="trip[quantity_people]" value="6">
                                         <div class="check">6</div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="row">
+                        #}{#<div class="row">
                             <div class="col-md-6 col-sm-8">
                                 <span>Доп. услуги</span><sup class="tooltip" title="Примерный текст для попапов с пояснениями">?</sup>
-                                <select name="call_me[services]" id="services" multiple>
+                                <select name="trip[services]" id="services" multiple>
                                     <option value="Забрать из дома">Забрать из дома</option>
                                     <option value="Инвалидное кресло">Инвалидное кресло</option>
                                     <option value="Детское кресло">Детское кресло</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 col-sm-4">
-                                <input type="submit" value="Заказать билеты">
-                            </div>
+                        </div>#}{#
+                        <a href="" class="call-data">Заказать билеты</a>
+                        <div class="modal-form modal-form-data">
+                            <h4 class="form-title">Заполните поля</h4>
+                            <input type="text" name="trip[name]" placeholder="Ваше имя" required>
+                            <input type="text" name="trip[phone]" class="phone" placeholder="(095) 123-45-67" required>
+                            <input type="email" name="trip[email]" placeholder="mail@mail.com">
+                            <input type="submit" class="button" value="Отправить">
                         </div>
-                    </form>
+                    </form>#}
                 </div>
                 <h2 class="main-title">Выбирая нас вы гарантированно получаете</h2>
                 <div class="bonuses">
@@ -124,7 +234,7 @@
                         <div class="col-md-4 col-sm-4 container-icon-box">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-4">
-                                    <img src="{{ asset('assets/img/reliable.png') }}" alt="">
+                                    <img class="thin-img" src="{{ asset('assets/img/reliable.png') }}" alt="">
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-8">
                                     <span class="bonus-descr">Надежные автобусы с проверенными водителями</span>
@@ -152,8 +262,71 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/package.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Возможность передачи посылок</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/seats.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Комфортные откидные сиденья с местом для ног</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/children.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Наличие детских кресел для детей</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/tv.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Телевизор в дороге</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/free-wifi.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Бесплатный Wi-Fi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 container-icon-box">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-4">
+                                    <img src="{{ asset('assets/img/home-pick.png') }}" alt="">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-8">
+                                    <span class="bonus-descr">Возможность заказать услугу "забрать из дому"</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
         </section>
         <section class="second-section">
             <div class="container">
@@ -175,7 +348,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="container-schedule">
-                                <h5 class="town"><strong>из Москвы</strong> в 22:00 и 23:00</h5>
+                                <h5 class="town"><strong>из Москвы</strong> в 21:00</h5>
                                 <ul class="route">
                                     <li>Тула</li>
                                     <li>Орел</li>
@@ -326,7 +499,7 @@
                 <p>Функциональность. Зависит от частоты применения и сферы использования. Особенно это касается туристических компаний, оказывающих услуги перевозки пассажиров по России, дальнему и ближнему зарубежью. Они должны закупать технику новых моделей, предназначенную для полного удовлетворения нужд пассажиров (кондиционер, биотуалет и пр.). К тому же к автобусам, пересекающим границы европейских государств, предъявляются высокие требования экологичности (соответствие двигателя стандартам Евро-4, Евро-5).</p>
 
                 <p>Комфорт. Немаловажный критерий, определяющий условия пребывания людей в а втобусе. Сюда входят оформление и эргономичность салона (расположение поручней, подножек, конструкция и обивка кресел, системы вентиляции, обогрева и пр.), а также особенности строения кузова модели.<br>
-                Для экскурсионных автобусов, например, необходимо наличие широких окон, обеспечивающих оптимальный панорамный обзор.</p>
+                    Для экскурсионных автобусов, например, необходимо наличие широких окон, обеспечивающих оптимальный панорамный обзор.</p>
             </div>
         </section>
 
@@ -335,7 +508,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
                         <div class="logo">
-                            <a href="#">
+                            <a href="{{ path('app.home') }}">
                                 <img src="{{ asset('assets/img/logo.png') }}" alt="">
                                 <strong>Bus4you</strong>
                             </a>
@@ -344,11 +517,11 @@
                     <div class="col-md-6 col-sm-6 hidden-xs">
                         <nav class="main-menu">
                             <ul class="menu">
-                                <li><a href="">О компании</a></li>
-                                <li><a href="">Акции</a></li>
-                                <li><a href="">Расписание</a></li>
-                                <li><a href="">Блог</a></li>
-                                <li><a href="">Контакты</a></li>
+                                <li><a href="{{ path('app.about') }}">О компании</a></li>
+                                {#<li><a href="">Акции</a></li>#}
+                                    <li><a href="{{ path('app.schedule') }}">Расписание</a></li>
+                                {#<li><a href="">Блог</a></li>#}
+                                <li><a href="{{ path('app.contacts') }}">Контакты</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -363,8 +536,8 @@
 
     <div class="modal-form">
         <h4 class="form-title">Заполните форму</h4>
-        <p>Мы свяжемся с Вами в течении 5 минут</p>
-        <form method="POST" action="{{path('bundles_call_me_feedback_reciver')}}">
+        <p>Мы свяжемся с Вами в течении 15 минут</p>
+        <form method="POST" id="call_me_form" action="{{path('bundles_call_me_feedback_reciver')}}">
             <input type="text" name="call_me[name]" placeholder="Ваше имя">
             <input type="text" name="call_me[phone]" class="phone" placeholder="(095) 123-45-67">
             <input type="submit" class="button" value="Отправить">

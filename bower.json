@@ -1,0 +1,7 @@
+{
+  "name": "bus4you",
+  "private": true,
+  "dependencies": {
+    "jquery-ui": "1.12.1"
+  }
+}

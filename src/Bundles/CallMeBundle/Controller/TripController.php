@@ -1,47 +1,64 @@
 <?php
-
 namespace Bundles\CallMeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Bundles\CallMeBundle\Entity\Trip;
 
 class TripController extends Controller
 {
+
     public function indexAction(Request $request)
     {
-        
-
+        $trip = $request->get('trip');
         $item = new Trip;
 
-        $form = $this->createForm('Bundles\CallMeBundle\Form\TripType', $item);
+        $item->setDispatch($trip['dispatch']);
+        $item->setDestination($trip['destination']);
+        $item->setDateTravel(\DateTime::createFromFormat("d/m/Y", $trip['date_travel']));
+        $item->setQuantityPeople($trip['quantity_people']);
+        /*$item->setServices($trip['services']);*/
+        $item->setName($trip['name']);
+        $item->setPhone($trip['phone']);
+        $item->setEmail($trip['email']);
+        $item->setCreationTime(new \DateTime());
 
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($item);
-            $em->flush();
 
-            $this->get('mail_service')->mailByCall($item);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($item);
+        $em->flush();
 
-//            $mm = $this->get('bundles.store.email_manager');
-//            $mm->sendMailByFeedback($item);
+        $from = $this->getParameter('mailer_user');
+        
+        $mailBody = $this->renderView(
+                'BundlesCallMeBundle:Trip:sendTrip.html.twig', array('name' => $trip['name'], 'phone' => $trip['phone'], 'email' => $trip['email'], 'dispatch' => $trip['dispatch'], 'destination' => $trip['destination'], 'date' => $trip['date_travel'], /*'services' => $trip['services'], */'quantity_people' => $trip['quantity_people'])
+            );
+        
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Trip')
+            ->setFrom($from)
+            ->setTo('kuzhel.dima92@gmail.com')
+            ->setBody($mailBody)
+        ;
+        $this->get('mailer')->send($message);
 
-            return $this->redirectToRoute('register_success');
-        }
-    
-        return $this->redirect($request->server->get('HTTP_REFERER'));
+        $message2 = \Swift_Message::newInstance()
+            ->setSubject('Trip')
+            ->setFrom($from)
+            ->setTo($trip['email'])
+            ->setBody($mailBody)
+        ;
+        $this->get('mailer')->send($message2);
+        
+        return $this->redirectToRoute('success_trip');
     }
-    
+
     public function tokenAction()
     {
         $item = new Trip;
 
         $form = $this->createForm('Bundles\CallMeBundle\Form\TripType', $item);
-          
+
         return $this->render('BundlesCallMeBundle:CallMe:token.html.twig', ['form' => $form->createView()]);
     }
-
 }

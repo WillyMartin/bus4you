@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="app" ng-strict-di>
+  <head>
+    <title app-page-title></title>
+    <?php include 'shared/_head.phtml' ?>
+    <?php
+    if (\Core\Application\Application::instance()->isProduction()) {
+      echo $this->wrapCss('assets/app.css');
+    }
+    ?>
+
+  </head>
+  <body>
+    <layout class="wrapper"></layout>
+
+    <script type="application/javascript">
+        var kData = <?php echo json_encode(\Component\Home\Service\JsConfigService::instance()->get())?>;
+        var kTranslations = <?php echo json_encode(\Core\Locale\LocaleService::instance()->getTranslations()) ?>;
+    </script>
+
+    <?php include 'shared/_footer.phtml' ?>
+  </body>
+</html>

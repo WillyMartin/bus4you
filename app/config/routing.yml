@@ -37,3 +37,38 @@ bundles.page.static_page:
 bundles_callme:
     resource: "@BundlesCallMeBundle/Resources/config/routing.yml"
     prefix:   /
+
+bundles_callme:
+    resource: "@BundlesCallMeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app.home:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    default/index.html.twig
+
+app.about:
+    path: /about/
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    default/about.html.twig
+
+app.contacts:
+    path: /contacts/
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    default/contacts.html.twig
+
+
+app.schedule:
+    path: /schedule/
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    default/schedule.html.twig
+
+app.octobus:
+    path: /octobus/
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    default/octobus.html.twig

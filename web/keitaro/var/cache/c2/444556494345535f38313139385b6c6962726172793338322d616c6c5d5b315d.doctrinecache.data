@@ -1,0 +1,2 @@
+0
+s:514:"(?:Go-http-client|Go )/?(?:(\d+[\.\d]+))?(?: package http)?|Faraday(?: v(\d+[\.\d]+))?|WWW-Mechanize(?:/(\d+[\.\d]+))?|Google-HTTP-Java-Client(?:/(\d+[\.\d\w-]+))?|aiohttp(?:/(\d+[\.\d]+))?|Mechanize(?:/(\d+[\.\d]+))?|HTTP_Request2(?:/(\d+[\.\d]+))?|HTTP_Request2(?:/(\d+[\.\d]+))?|okhttp/([\d\.]+)|(?:perlclient|libwww-perl)(?:/?(\d+[\.\d]+))?|Java(?:/?(\d+[\.\d]+))?|Python-urllib(?:/?(\d+[\.\d]+))?|python-requests(?:/(\d+[\.\d]+))?|(?:lib)?curl(?:/(\d+[\.\d]+))?|Guzzle(?:/(\d+[\.\d]+))?|Wget(?:/(\d+[\.\d]+))?";

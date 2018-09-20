@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Спасибо</title>{% endblock %}
+
+{% block body %}
+
+    <div class="wrapper wrapper-small">
+        <header id="header" class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-5 col-xs-3">
+                        <div class="logo">
+                            <a href="{{ path('app.home') }}">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                                <strong>Bus4you</strong>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-push-6 col-sm-4 col-xs-6">
+                        <button class="call-trigger">Заказать звонок</button>
+                    </div>
+                    <div class="col-md-6 col-md-pull-3 col-sm-3 col-xs-3">
+                        <a class="mmenu" href="#menu">
+                            <button id="my-icon" class="hamburger hamburger--collapse" type="button">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </a>
+                        <nav id="menu" class="main-menu">
+                            <ul class="menu">
+                                <li><a href="{{ path('app.about') }}">О компании</a></li>
+                                {#<li><a href="">Акции</a></li>#}
+                                <li><a href="{{ path('app.schedule') }}">Расписание</a></li>
+                                {#<li><a href="">Блог</a></li>#}
+                                <li><a href="{{ path('app.contacts') }}">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="head-section success-section">
+            <div class="container">
+                <h2 class="success-message">Спасибо за Вашу заявку! Наш менеджер свяжется с Вами в течении 15 минут</h2>
+            </div>
+        </section>
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-4">
+                        <div class="logo">
+                            <a href="#">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                                <strong>Bus4you</strong>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 hidden-xs">
+                        <nav class="main-menu">
+                            <ul class="menu">
+                                <li><a href="{{ path('app.about') }}">О компании</a></li>
+                                {#<li><a href="">Акции</a></li>#}
+                                <li><a href="{{ path('app.schedule') }}">Расписание</a></li>
+                                {#<li><a href="">Блог</a></li>#}
+                                <li><a href="{{ path('app.contacts') }}">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-8">
+                        <button class="call-trigger">Заказать звонок</button>
+                        <strong class="with-us">С нами - просто</strong>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    {div class="modal-form">
+        <h4 class="form-title">Заполните форму</h4>
+        <p>Мы свяжемся с Вами в течении 5 минут</p>
+        <form method="POST" id="call_me_form" action="{{path('bundles_call_me_feedback_reciver')}}">
+            <input type="text" name="call_me[name]" placeholder="Ваше имя">
+            <input type="text" name="call_me[phone]" class="phone" placeholder="(095) 123-45-67">
+            <input type="submit" class="button" value="Отправить">
+        </form>
+    </div>
+    <div class="overlay"></div>
+    <script src="{{ asset('assets/js/redirect.js') }}"></script>
+{% endblock %}
+

@@ -11,19 +11,12 @@ Bundles\CallMeBundle\Entity\Trip:
         name:
             type: string
             length: 255
-            nullable: true
-        phone:
-            type: string
-            length: 255
-            nullable: true
         dispatch:
             type: string
             length: 255
-            nullable: true
         destination:
             type: string
             length: 255
-            nullable: true
         date_travel:
             type: date
         services:
@@ -33,6 +26,12 @@ Bundles\CallMeBundle\Entity\Trip:
         quantity_people:
             type: integer
             nullable: true
+        phone:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
         done:
             type: boolean
     lifecycleCallbacks: {  }

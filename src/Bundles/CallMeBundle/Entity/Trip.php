@@ -15,6 +15,11 @@ class Trip
     /**
      * @var string
      */
+    private $name;
+
+    /**
+     * @var string
+     */
     private $dispatch;
 
     /**
@@ -38,9 +43,24 @@ class Trip
     private $quantity_people;
 
     /**
+     * @var string
+     */
+    private $phone;
+
+    /**
+     * @var string
+     */
+    private $email;
+
+    /**
      * @var boolean
      */
-    private $done;
+    private $done = false;
+
+    /**
+     * @var \DateTime
+     */
+    private $creation_time;
 
 
     /**
@@ -51,6 +71,30 @@ class Trip
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Trip
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -174,64 +218,6 @@ class Trip
     }
 
     /**
-     * Set done
-     *
-     * @param boolean $done
-     *
-     * @return Trip
-     */
-    public function setDone($done)
-    {
-        $this->done = $done;
-
-        return $this;
-    }
-
-    /**
-     * Get done
-     *
-     * @return boolean
-     */
-    public function getDone()
-    {
-        return $this->done;
-    }
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $phone;
-
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Trip
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
      * Set phone
      *
      * @param string $phone
@@ -254,4 +240,69 @@ class Trip
     {
         return $this->phone;
     }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Trip
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set done
+     *
+     * @param boolean $done
+     *
+     * @return Trip
+     */
+    public function  setDone($done)
+    {
+        $this->done = $done;
+
+        return $this;
+    }
+
+    /**
+     * Get done
+     *
+     * @return boolean
+     */
+    public function getDone()
+    {
+        return $this->done;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreationTime()
+    {
+        return $this->creation_time;
+    }
+
+    /**
+     * @param \DateTime $creationTime
+     */
+    public function setCreationTime($creationTime)
+    {
+        $this->creation_time = $creationTime;
+    }
 }
+

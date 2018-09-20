@@ -1,0 +1,8 @@
+<?php if ($this->exception): ?>
+    <p><?php echo get_class($this->exception) . ': ' .$this->exception->getMessage() ?></p>
+    <pre><?php echo $this->exception->getTraceAsString() ?></pre>
+<?php else: ?>
+    <p><?php echo $this->message ?></p>
+<?php endif ?>
+
+<p><a class="back"><?php echo $this->t('exceptions.back')?></a></p>
